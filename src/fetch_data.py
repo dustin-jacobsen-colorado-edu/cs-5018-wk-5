@@ -43,6 +43,8 @@ class LuchtmeetApiClient(ILuchtmeetApiClient):
         if response.status_code in {200}:
             body = response.json()
             data = body['data']
+            for record in data :
+                record['timestamp_measured'] = datetime.strptime(record['timestamp_measured'], INPUT_DATE_FORMAT)
             return data
 
         else:
