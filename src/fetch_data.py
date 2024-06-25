@@ -12,9 +12,9 @@ from src.bootstrap import app, config, db, statsd_client
 
 
 interval_minutes = config['data_retrieval']['interval_minutes']
-INPUT_DATE_FORMAT = "%Y-%m-%dT%H:%MZ"
-LUCHTMEET_URL = "https://api.luchtmeetnet.nl/open_api";
-STATION_ID= "NL49551";
+INPUT_DATE_FORMAT = '%Y-%m-%dT%H:%M:%S%z'
+LUCHTMEET_URL = "https://api.luchtmeetnet.nl/open_api"
+STATION_ID= "NL49551"
 
 class LuchtmeetRecord(db.Model):
     __tablename__ = 'luchtmeet_records'
