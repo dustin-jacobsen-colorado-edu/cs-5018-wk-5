@@ -151,7 +151,7 @@ Please forgive the oversimplification - I was hitting the limits of the free pla
 
 ## Internal API documentation
 
-The only resource is the `/report` resource which supports GET and POST1.
+The only resource is the `/report` resource which supports GET and POST.
 
 `GET /report/<id>`
 - returns a json object of the form:
