@@ -20,14 +20,14 @@ class TestLuchtmeetCollector(TestCase):
 
     def test_collect_and_store_fake_data(self):
         fake_air_quality_data = {
-            "timestamp_measured": datetime.strptime("2018-01-20T12:00Z", INPUT_DATE_FORMAT),
+            "timestamp_measured": datetime.strptime("2024-06-25T19:00:00+00:00", INPUT_DATE_FORMAT),
             "value": 26,
             "formula": "NO2"
         }
         air_quality_collector = LuchtmeetCollector(self.StubApiClient(fake_air_quality_data))
         air_quality_collector.collect_and_store()
         LuchtmeetRecord.query.filter(
-            LuchtmeetRecord.timestamp_measured == datetime.strptime("2018-01-20T12:00Z", INPUT_DATE_FORMAT)
+            LuchtmeetRecord.timestamp_measured == datetime.strptime("2024-06-25T19:00:00+00:00", INPUT_DATE_FORMAT)
         ).first()
 
     def test_collect_and_store_no_data(self):
