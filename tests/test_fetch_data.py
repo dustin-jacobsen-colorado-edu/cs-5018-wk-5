@@ -12,10 +12,10 @@ class TestLuchtmeetCollector(TestCase):
         db.create_all()
 
     class StubApiClient(ILuchtmeetApiClient):
-        def __init__(self, data: dict | None):
+        def __init__(self, data: list[dict] | None):
             self.data = data
 
-        def get_air_quality_data(self) -> dict:
+        def get_air_quality_data(self) -> list[dict] | None:
             return self.data
 
     def test_collect_and_store_fake_data(self):
