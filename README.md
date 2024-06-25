@@ -192,7 +192,7 @@ Note that some fields may be omitted depending on the state of the report.
 
 - This directory stores the source code of the project. These scripts below are of particular interest.
 - `src/fetch_data.py`
-- - This script contains the main function that pulls data from the carbon intensity public API and stores it in the database. It is regularly invoked by the `src/poller.py` script.
+- - This script contains the main function that pulls data from the air quality API and stores it in the database. It is regularly invoked by the `src/poller.py` script.
 - `src/web.py`
 - - This script runs a web server that provides the front end for the user to request statistical analysis of the data.
 - `src/analyzer.py`
@@ -216,7 +216,7 @@ Note that some fields may be omitted depending on the state of the report.
 
 **`config.json`**
 
-- This file stores project configuration settings, such as how often to poll the carbon intensity API.
+- This file stores project configuration settings, such as how often to poll the air quality API.
 
 **`Procfile`**
 
