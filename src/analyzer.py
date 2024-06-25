@@ -19,7 +19,7 @@ class LuchtmeetAnalyzer:
                                        LuchtmeetRecord.formula
                                        ) \
                 .filter(LuchtmeetRecord.timestamp_measured.between(self.from_dt, self.to_dt),
-                        LuchtmeetRecord.formula.equals(self.formula)
+                        LuchtmeetRecord.formula == self.formula
                         ) \
                 .all()
 
