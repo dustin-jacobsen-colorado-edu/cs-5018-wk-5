@@ -1,0 +1,28 @@
+{
+  "data_retrieval": {
+    "interval_minutes": 6
+  },
+  "celery": {
+    "broker_connection_retry_on_startup": true,
+    "broker_connection_retry": true,
+    "result_backend": "rpc://",
+    "task_serializer": "json",
+    "result_serializer": "json",
+    "accept_content": ["json"],
+    "enable_utc": true,
+    "//broker_url": "Can be overridden with env vars" ,
+    "broker_url": "amqp://localhost:5672/",
+    "//brokerpoollimit":"Must be 1 for free cloudampqp plan",
+    "broker_pool_limit":1,
+    "//broker_heartbeat":"We are using TCP keep-alive instead",
+    "broker_heartbeat":null,
+    "//broker_connection_timeout":"30s is long for the service, but DNS etc may introduce delays",
+    "broker_connection_timeout":30,
+    "//event_queue_expires": "Delete queues without consumers after 5 min.",
+    "event_queue_expires": 300,
+    "//worker_prefetch_multiplier": "Disables prefetching",
+    "worker_prefetch_multiplier": 1,
+    "//worker_concurrency": "Kept low for CPU-bound tasks. Our toy task is not actully CPU-bound, but realistic statistical analysis of the data likely would be.",
+    "worker_concurrency": 2
+  }
+}

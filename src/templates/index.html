@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/assets/app.js" defer type="text/javascript"></script>
+    <link rel="stylesheet" href="/assets/app.css" type="text/css" />
+    <title>Date Range Summary</title>
+</head>
+<body>
+    <h1>Date Range Summary</h1>
+
+    <form method="POST" action="/summary" id="filter" name="filter">
+        <label for="from_dt"><u>F</u>rom Time:</label>
+        <input
+                type="datetime-local"
+                name="from_dt"
+                id="from_dt"
+                accesskey="f"
+                step="1800"
+        />
+        <label for="to_dt"><u>T</u>o Time:</label>
+        <input
+                type="datetime-local"
+                name="to_dt"
+                id="to_dt"
+                required
+                accesskey="t"
+                step="1800"
+        />
+        <label for="to_dt"><u>F</u>ormula:</label>
+        <select
+                name="formula"
+                id="formula"
+                required
+                accesskey="f"
+        >
+		<option>CO</option>
+		<option>NO</option>
+		<option>O3</option>
+		<option>FN</option>
+		<option>NO2</option>
+		<option>PM10</option>
+        </select>
+        <button type="submit" accesskey="s"><u>S</u>ubmit</button>
+    </form>
+
+    <div id="reports">
+        <template class="report">
+            <h2>Report</h2>
+            <dl>
+                <dt>From Time</dt>
+                <dd data-text="from_dt"></dd>
+                <dt>To Time</dt>
+                <dd data-text="to_dt"></dd>
+                <dt>Formula</dt>
+                <dd data-text="formula"></dd>
+                <dt>State</dt>
+                <dd data-text="state"></dd>
+                <dt data-show="mean_values">Mean Value</dt>
+                <dd data-show="mean_values" data-text="mean_values"></dd>
+                <dt data-show="mean_values">Median Value</dt>
+                <dd data-show="mean_values" data-text="median_values"></dd>
+                <dt data-show="variance_values">Variance Value</dt>
+                <dd data-show="variance_values" data-text="variance_values"></dd>
+                <dt data-show="std_deviation_values">Standard Deviation Value</dt>
+                <dd data-show="std_deviation_values" data-text="std_deviation_values"></dd>
+            </dl>
+        </template>
+        <!-- Reports will be displayed here -->
+    </div>
+
+    <div id="summary">
+        <!-- Summary statistics will be displayed here -->
+    </div>
+
+</body>
+</html>

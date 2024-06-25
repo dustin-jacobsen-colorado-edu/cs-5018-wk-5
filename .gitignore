@@ -1,0 +1,17 @@
+# enables us to reserve directory names for resources
+!.gitkeep
+
+# such as these.
+/database/
+# checking in venv for heroku
+#/venv/
+
+
+# vim
+.*.sw?
+.sw?
+
+# python
+__pycache__/
+__pycache__/
+
