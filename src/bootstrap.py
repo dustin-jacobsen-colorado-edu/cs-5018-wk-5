@@ -45,6 +45,6 @@ print('startinng celery client.')
 celery = Celery(
     app.import_name,
     broker=config['celery']['broker_url'],
-    include=['src.time_series_analysis']
+    include=['src.analyzer']
 )
 celery.conf.update(config['celery'])
