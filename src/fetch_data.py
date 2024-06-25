@@ -27,12 +27,12 @@ class LuchtmeetRecord(db.Model):
 
 
 class ILuchtmeetApiClient(Protocol):
-    def get_luchtmeet_data(self) -> dict | None:
+    def get_luchtmeet_data(self) -> [dict] | None:
         ...
 
 
 class LuchtmeetApiClient(ILuchtmeetApiClient):
-    def get_luchtmeet_data(self) -> dict | None:
+    def get_luchtmeet_data(self) -> [dict] | None:
         start = time.time()
         formula = 'NO2'
         url = f'{LUCHTMEET_URL}/stations/{STATION_ID}/measurements?page=&order=&order_direction=&formula={formula}'
