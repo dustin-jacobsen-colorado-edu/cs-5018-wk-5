@@ -1,4 +1,4 @@
 release: ./release.sh
-analyzer: PYTHONPATH="${PYTHONPATH}:$(pwd)" venv/bin/python src/analyzer.py 
-poller: PYTHONPATH="${PYTHONPATH}:$(pwd)" venv/bin/python src/poller.py
-web: PYTHONPATH="${PYTHONPATH}:$(pwd)" PORT="$PORT" venv/bin/python src/web.py 
+analyzer: python src/analyzer.py 
+poller: python src/poller.py
+web: python src/web.py 
