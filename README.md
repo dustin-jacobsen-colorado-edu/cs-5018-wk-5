@@ -3,7 +3,7 @@
 
 This project is the Week 5 assignment of the Application course. This application: 
 
-1. pulls carbon intensity data from a public API,
+1. pulls air quality data from a public API,
 1. stores the data in a database,
 1. provides a web front end where a user can request an analysis of the data,
 1. performs said analysis asynchronously,
@@ -28,7 +28,7 @@ The end result looks like this:
 
 ## Rubric coverage
 - **Web application basic form, reporting**: The web application provides a form where the user can enter a time period and request a statistical analysis of the data collected during that time period. The web application also provides a page where the user can view the results of the analysis.
-- **Data collection**: The web application collects data from a public REST API that provides carbon intensity measurements.
+- **Data collection**: The web application collects data from a public REST API that provides air quality measurements.
 - **Data analyzer**: Per user request, the web application provides summary statistics of the data collected.
 - **Unit tests**: Unit tests are included in the `tests/test_fetch_data.py` file.
 - **Data persistence, any data store**: The web application stores the data collected in a MySQL database.
@@ -122,7 +122,7 @@ To help make the data more apparent, I suggest zooming into a small window of ti
 ## Usage
 From the end user's perspective, the application presents itself as a single page web application. The entry point is the "Open app" button on the Overview tab in Heroku. 
 
-The data source publishes new carbon intensity measurements every 30 minutes. They only offer one data point a time - their most recently available data. I set up the system so one measurement is immediately retrieved from the data source when the application starts, but the next one will come after a while. So after finishing the setup, you need to let it run for at least one hour, to guarantee that it accumulates at least two measurements. 
+The data source publishes new air quality measurements every 30 minutes. They only offer one data point a time - their most recently available data. I set up the system so one measurement is immediately retrieved from the data source when the application starts, but the next one will come after a while. So after finishing the setup, you need to let it run for at least one hour, to guarantee that it accumulates at least two measurements. 
 
 You can enter the app via the abovementioned entry point, and then request a report by entering a time period on the web page. 
 
