@@ -52,7 +52,6 @@ class LuchtmeetAnalyzer:
         variance_values = df['value'].var()
         std_deviation_values = df['value'].std()
 
-
         return (mean_values,
                 median_values,
                 variance_values,

@@ -5,7 +5,7 @@ import pandas as pd
 from src.bootstrap import app, statsd_client
 from flask import render_template, request, send_from_directory, jsonify
 from datetime import datetime
-from src.analyzer import LuchtmeetAnalyzer, analyze
+from src.analyzer import analyze
 
 
 @app.route('/')
@@ -74,7 +74,7 @@ def render_report_asynchronously(task, report_id):
                 "id": task.id,
                 "from_dt": from_dt,
                 "to_dt": to_dt,
-                "to_dt": formula,
+                "formula": formula,
                 "state": "SUCCESS",
                 "mean_values": 'NaN' if pd.isna(mean_values) else mean_values,
                 "median_values": 'NaN' if pd.isna(median_values) else median_values,
@@ -86,7 +86,6 @@ def render_report_asynchronously(task, report_id):
             }
         }
     }), 200
-
 
 
 if __name__ == '__main__':

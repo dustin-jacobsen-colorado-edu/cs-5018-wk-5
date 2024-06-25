@@ -14,7 +14,8 @@ from src.bootstrap import app, config, db, statsd_client
 interval_minutes = config['data_retrieval']['interval_minutes']
 INPUT_DATE_FORMAT = '%Y-%m-%dT%H:%M:%S%z'
 LUCHTMEET_URL = "https://api.luchtmeetnet.nl/open_api"
-STATION_ID= "NL49551"
+STATION_ID = "NL49551"
+
 
 class LuchtmeetRecord(db.Model):
     __tablename__ = 'luchtmeet_records'
@@ -43,7 +44,7 @@ class LuchtmeetApiClient(ILuchtmeetApiClient):
         if response.status_code in {200}:
             body = response.json()
             data = body['data']
-            for record in data :
+            for record in data:
                 record['timestamp_measured'] = datetime.strptime(record['timestamp_measured'], INPUT_DATE_FORMAT)
             return data
 
@@ -67,8 +68,8 @@ class LuchtmeetCollector:
             for record in luchtmeet_data:
                 # Create a new entry in the database
                 new_entry = LuchtmeetRecord(timestamp_measured=record["timestamp_measured"],
-                                                  value=record["value"],
-                                                  formula=record["formula"])
+                                            value=record["value"],
+                                            formula=record["formula"])
                 db.session.add(new_entry)
                 db.session.commit()
                 logging.info("Air quality data has been stored in the database.")

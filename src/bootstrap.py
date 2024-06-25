@@ -6,6 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 import statsd
 from celery import Celery
 
+
 def get_project_root() -> str:
     current_directory = os.path.dirname(os.path.abspath(__file__))
     while current_directory != os.path.abspath(os.path.sep):
