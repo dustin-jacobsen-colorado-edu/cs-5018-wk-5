@@ -146,7 +146,7 @@ The below sequence diagram depicts our four applications as *controls*. Three of
 
 The user and the four controls exchange data through a series of barriers. In some cases, the data exchange is through RESTful APIs.
 
-![Sequence Diagram](documentation/assets/cs5028%20capstone%20sequence.png)
+![Sequence Diagram](documentation/assets/csca5028%20week%201%20capstone%20sequence.png)
 
 Please forgive the oversimplification - I was hitting the limits of the free plan for the UML tool.
 
