@@ -79,7 +79,7 @@ class LuchtmeetAnalyzer:
 def analyze(from_dt, to_dt,  formula):
     analyzer = LuchtmeetAnalyzer(from_dt, to_dt, formula)
     result = analyzer.analyze()
-    output = from_dt, to_dt, result
+    output = from_dt, to_dt, formula, result
     return output
 
 
