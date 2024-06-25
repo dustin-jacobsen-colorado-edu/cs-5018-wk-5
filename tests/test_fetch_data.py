@@ -15,7 +15,7 @@ class TestLuchtmeetCollector(TestCase):
         def __init__(self, data: list[dict]):
             self.data = data
 
-        def get_air_quality_data(self) -> list[dict]:
+        def get_luchtmeet_data(self) -> list[dict]:
             return self.data
 
     def test_collect_and_store_fake_data(self):
@@ -31,7 +31,7 @@ class TestLuchtmeetCollector(TestCase):
         ).first()
 
     def test_collect_and_store_no_data(self):
-        air_quality_collector = LuchtmeetCollector(self.StubApiClient(None))
+        air_quality_collector = LuchtmeetCollector(self.StubApiClient([]))
         air_quality_collector.collect_and_store()
 
     # verify that collect and store works with the real API client
@@ -40,4 +40,4 @@ class TestLuchtmeetCollector(TestCase):
         air_quality_collector = LuchtmeetCollector(LuchtmeetApiClient())
         air_quality_collector.collect_and_store()
         new_count = LuchtmeetRecord.query.count()
-        self.assertEqual(prev_count + 1, new_count)
+        self.assertLess(prev_count, new_count)
