@@ -130,11 +130,11 @@ The form validates your input: the time period entries need to be on the half ho
 
 Entering the time period may seem tricky due to time differences and data availability. Let me give you an example:
 
-I'm writing this README on 2023-10-17 at 11:15 AM MDT. At this moment, the available measurement corresponds to the half-hour window from 11:00 AM to 11:30 AM MDT on 2023-10-17. However, the source data is in UTC time, which means this window corresponds to 2023-10-17 17:00 to 17:30 UTC.
+I'm writing this README at 11:15 AM MDT. At this moment, the available measurement corresponds to the half-hour window from 11:00 AM to 11:30 AM MDT. However, the source data is in UTC time, which means this window corresponds to 17:00 to 17:30 UTC.
 
 Instructions:
 
-Choose a Time Window: To get a report, your selected time period needs to cover this window. For example, if you enter "From 10/17/2023 04:00 PM" (please ensure it's exactly 4:00 PM, see the validation above) "To 10/17/2023 06:00 PM," you will receive a report.
+Choose a Time Window: To get a report, your selected time period needs to cover this window. For example, if you enter "From 06/23/2024 06:00 PM" (please ensure it's exactly 6:00 PM, see the validation above) "To 06/25/2024 07:00 PM," you will receive a report.
 
 Report Contents: This report will include at least the mean and median (when only one measurement is available), with the variance and standard deviation showing as NaN. If the application has enough time to gather more measurements, it will also include the variance and standard deviation.
 
