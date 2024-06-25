@@ -89,4 +89,6 @@ def render_report_asynchronously(task, report_id):
 
 
 if __name__ == '__main__':
+    print('running app')
     app.run(debug=True, port=os.environ.get('PORT') or 5000, host=os.environ.get('HOST') or '0.0.0.0')
+    print('exiting app')

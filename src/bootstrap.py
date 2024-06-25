@@ -21,15 +21,18 @@ project_root = get_project_root()
 with open(os.path.join(project_root, 'config.json'), 'r') as config_file:
     config = json.load(config_file)
 
+print('startinng Flask.')
 app = Flask(__name__)
 app.app_context().push()
 db_dir = os.path.join(project_root, 'database')
 os.makedirs(db_dir, exist_ok=True)
 db_file_path = os.path.join(db_dir, 'air-quality.sqlite3')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('JAWSDB_URL') or "sqlite:///" + os.path.abspath(db_file_path)
+print('startinng SQLAlchemy.')
 db = SQLAlchemy(app)
 
 
+print('startinng statsd client.')
 statsd_client = statsd.StatsClient(
         os.environ.get('STATSD_HOST') or 'localhost',
         os.environ.get('STATSD_PORT') or 8125,
@@ -38,6 +41,7 @@ statsd_client = statsd.StatsClient(
 
 config['celery']['broker_url'] = os.environ.get('CLOUDAMQP_URL') or config['celery']['broker_url']
 
+print('startinng celery client.')
 celery = Celery(
     app.import_name,
     broker=config['celery']['broker_url'],
