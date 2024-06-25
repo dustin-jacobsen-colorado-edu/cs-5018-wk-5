@@ -27,12 +27,12 @@ class LuchtmeetRecord(db.Model):
 
 
 class ILuchtmeetApiClient(Protocol):
-    def get_luchtmeet_data(self) -> list[dict] | None:
+    def get_luchtmeet_data(self) -> list[dict]:
         ...
 
 
 class LuchtmeetApiClient(ILuchtmeetApiClient):
-    def get_luchtmeet_data(self) -> list[dict] | None:
+    def get_luchtmeet_data(self) -> list[dict]:
         start = time.time()
         formula = 'NO2'
         url = f'{LUCHTMEET_URL}/stations/{STATION_ID}/measurements?page=&order=&order_direction=&formula={formula}'
@@ -49,7 +49,7 @@ class LuchtmeetApiClient(ILuchtmeetApiClient):
 
         else:
             print(f"Request failed with status code {response.status_code}")
-            return None
+            return []
 
 
 class LuchtmeetCollector:
