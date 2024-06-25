@@ -90,7 +90,6 @@ At this point, the application is up and running. An end user (see the Usage sec
 
 Before we get into the metrics, I recommend first checking the log for the `api_polling_worker` dyno. There ought to be no data, till that has written at least once.
 
-TODO: check line numbers's
 We provide custom StatsD metrics for [the responsiveness of the air quality API we're polling](https://github.com/dustin-jacobsen-colorado-edu/cs-5028-wk-5/blob/854bbe43f44c258028d5d52373fbc57077d33fcc/src/fetch_data.py#L60-L63), for [our own statistical calculations](https://github.com/dustin-jacobsen-colorado-edu/cs-5028-wk-5/blob/cbb64f58b7ce0262a1917f48981da6491ace58ec/src/analyzer.py#L79-L81), as well as general usage statistics. Flask also provides some standard StatsD metrics. Each of the add-on services has its own built-in metrics. This section aims to help you find all of these.
 
 ### JawsDB
